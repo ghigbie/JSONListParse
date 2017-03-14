@@ -1,5 +1,6 @@
 package com.geogehigbie.jsonlistproject;
 
+import android.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,6 +31,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         makeVolleyRequest();
+
+    }
+
+    public void centerActionBar(){
+        android.app.ActionBar actionBar = getActionBar();
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM); //this is a soft error
+        getSupportActionBar().setCustomView(R.layout.action_bar);
 
     }
 
