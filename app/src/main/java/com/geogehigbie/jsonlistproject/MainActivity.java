@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import com.android.volley.Request;
@@ -103,10 +104,12 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void createListView(){
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, namesArrayList);
+        //ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, namesArrayList);
+//        String [] namesArray = (String[]) namesArrayList.toArray();
+        CustomListAdapter listAdapter = new CustomListAdapter(this, namesArrayList);
 
         ListView listView = (ListView) findViewById(R.id.contacts_list);
-        listView.setAdapter(arrayAdapter);
+        listView.setAdapter(listAdapter);
         listView.setVisibility(View.VISIBLE);
     }
 

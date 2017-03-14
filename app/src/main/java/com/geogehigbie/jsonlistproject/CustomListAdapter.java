@@ -9,13 +9,15 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 /**
  * Created by georgehigbie on 3/13/17.
  */
 
 public class CustomListAdapter extends ArrayAdapter<String> {
 
-    public CustomListAdapter(Context context, String[] values) {
+    public CustomListAdapter(Context context, ArrayList<String> values) {
         super(context, R.layout.list_item_custom, values);
 
     }
@@ -40,3 +42,4 @@ public class CustomListAdapter extends ArrayAdapter<String> {
 
     }
 }
+
