@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">JSONListProject</string>
+    <string name="app_name">JSON List Project</string>
+    <string name="begin">Begin Parsing</string>
+
+    <!-- List View Text Content -->
+    <string name="list_name">Firstname Lastname</string>
+    <string name="list_phone">(808)982-7742</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
