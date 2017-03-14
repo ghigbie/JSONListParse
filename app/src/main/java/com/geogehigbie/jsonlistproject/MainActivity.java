@@ -32,8 +32,9 @@ public class MainActivity extends AppCompatActivity {
 
     private final String URL_BASE = "https://s3.amazonaws.com/technical-challenge/Contacts_v2.json";
     private ArrayList<Person> peopleSimpleArrayList = new ArrayList<>();
-    private ArrayList<String> namesArrayList = new ArrayList<>();
-    private ArrayList<String> homePhoneArrayList = new ArrayList<>();
+    private ArrayList<Person> peopleComplexArrayList = new ArrayList<>();
+//    private ArrayList<String> namesArrayList = new ArrayList<>();
+//    private ArrayList<String> homePhoneArrayList = new ArrayList<>();
     private final String TAG = "DEBUGGING";
     private SoundPool soundPool;
     private int soundClick;
@@ -66,15 +67,26 @@ public class MainActivity extends AppCompatActivity {
                         for (int i = 0; i < response.length(); i++) {
                             JSONObject person = response.getJSONObject(i);
                             String name = person.getString("name");
-                            Log.d(TAG, "onResponse: NAME " + name);
+                            String email = person.getString("email");
+                            String birthday = person.getString("birthdate");
+                            String company = person.getString("company");
+
                             JSONObject phones = person.getJSONObject("phone");
                             String homePhone = phones.getString("home");
-                            Log.d(TAG, "onResponse: HOME " + homePhone);
+
+                            JSONObject address = person.getJSONObject("address");
+                            String addressCity = address.getString("city");
+                            String addressState = address.getString("state");
+                            String addressStreet = address.getString("street");
+                            String addressZip = address.getString("zip");
 
                             Person personObject = new Person(name, homePhone);
                             peopleSimpleArrayList.add(personObject);
-                            namesArrayList.add(name);
-                            homePhoneArrayList.add(homePhone);
+
+
+                            Person complexPersonObject = new Person(addressCity, addressState, addressStreet, addressZip,
+                                    birthday, company, email, homePhone, name);
+                            peopleComplexArrayList.add(complexPersonObject);
                         }
 
 
@@ -108,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
                 new AdapterView.OnItemClickListener(){
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        showContactDetails();
+
                     }
                 });
 

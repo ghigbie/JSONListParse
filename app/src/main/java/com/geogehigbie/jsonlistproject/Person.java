@@ -7,22 +7,60 @@ package com.geogehigbie.jsonlistproject;
 public class Person {
 
     private String name;
-    private String mobile;
     private String company;
     private String homePhone;
-    private String address;
+    private String addressStreet;
+    private String addressCity;
+    private String addressState;
+    private String addressZip;
     private String birthday;
     private String email;
 
 
-    public Person(String address, String birthday, String company, String email, String homePhone, String mobile, String name) {
-        this.address = address;
+    public Person(String addressCity, String addressState, String addressStreet, String addressZip,
+                  String birthday, String company, String email, String homePhone, String name) {
+        this.addressCity = addressCity;
+        this.addressState = addressState;
+        this.addressStreet = addressStreet;
+        this.addressZip = addressZip;
         this.birthday = birthday;
         this.company = company;
         this.email = email;
         this.homePhone = homePhone;
-        this.mobile = mobile;
         this.name = name;
+    }
+
+
+    public String getAddressCity() {
+        return addressCity;
+    }
+
+    public void setAddressCity(String addressCity) {
+        this.addressCity = addressCity;
+    }
+
+    public String getAddressState() {
+        return addressState;
+    }
+
+    public void setAddressState(String addressState) {
+        this.addressState = addressState;
+    }
+
+    public String getAddressStreet() {
+        return addressStreet;
+    }
+
+    public void setAddressStreet(String addressStreet) {
+        this.addressStreet = addressStreet;
+    }
+
+    public String getAddressZip() {
+        return addressZip;
+    }
+
+    public void setAddressZip(String addressZip) {
+        this.addressZip = addressZip;
     }
 
     public Person(String name, String homePhone) {
@@ -30,13 +68,6 @@ public class Person {
         this.homePhone = homePhone;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
 
     public String getBirthday() {
         return birthday;
@@ -70,13 +101,6 @@ public class Person {
         this.homePhone = homePhone;
     }
 
-    public String getMobile() {
-        return mobile;
-    }
-
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
 
     public String getName() {
         return name;

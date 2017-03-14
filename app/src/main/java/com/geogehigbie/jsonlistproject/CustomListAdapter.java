@@ -37,15 +37,7 @@ public class CustomListAdapter extends ArrayAdapter<Person> {
         textView1.setText(item.getName());
         textView2.setText(item.getHomePhone());
 
-//        String homePhone = item.getHomePhone();
-//        homePhone = homePhone.format("(%s) %s-%s", homePhone.substring(0, 3), homePhone.substring(3, 6),
-//                homePhone.substring(6, 10));
-//        textView2.setText(homePhone);
-
         imageView.setImageResource(R.drawable.mailicon);
-
-
-
 
         return customView;
 
