@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        centerActionBar();
         makeVolleyRequest();
 
     }
@@ -51,11 +52,9 @@ public class MainActivity extends AppCompatActivity {
                     try {
                         JSONObject person = response.getJSONObject(i);
                         String name = person.getString("name");
-                        namesArrayList.add(name);
                         Log.d(TAG, "onResponse: NAME " + name);
                         JSONObject phones = person.getJSONObject("phone");
                         String mobile = phones.getString("mobile");
-                        mobileArrayList.add(mobile);
                         Log.d(TAG, "onResponse: MOBILE " + mobile);
 
                     } catch (JSONException e){
