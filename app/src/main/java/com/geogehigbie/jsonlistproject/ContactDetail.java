@@ -10,11 +10,15 @@ import android.view.ViewGroup;
 
 public class ContactDetail extends Fragment {
 
+    private View view;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_contact_detail, container, false);
+        view = inflater.inflate(R.layout.fragment_contact_detail, container, false);
+
+
+        return view;
     }
 
 

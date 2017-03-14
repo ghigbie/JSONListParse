@@ -5,6 +5,7 @@ import android.media.AudioAttributes;
 import android.media.SoundPool;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -24,6 +25,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import static android.view.View.GONE;
@@ -120,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
                 new AdapterView.OnItemClickListener(){
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
+                        showContactDetails(i);
                     }
                 });
 
@@ -156,15 +158,35 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void showContactDetails(){
+    public void showContactDetails(int position){
+        Person personToSend = peopleComplexArrayList.get(position);
+        String name = personToSend.getName();
+        String email = personToSend.getEmail();
+        String birthday = personToSend.getBirthday();
+        String company = personToSend.getCompany();
+        String city = personToSend.getAddressCity();
+        String state = personToSend.getAddressState();
+        String street = personToSend.getAddressStreet();
+        String zip = personToSend.getAddressZip();
+
+        Bundle bundle = new Bundle();
+        bundle.putString("name", name);
+        bundle.putString("email", email);
+        bundle.putString("birthday", birthday);
+        bundle.putString("company", company);
+        bundle.putString("city", city);
+        bundle.putString("state", state);
+        bundle.putString("street", street);
+        bundle.putString("zip", zip);
+
+        ContactDetail contactDetail = new ContactDetail();
+        contactDetail.setArguments(bundle);
+
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container, new ContactDetail());
+        fragmentTransaction.replace(R.id.fragment_container, contactDetail);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
-
-
-
 
 }
