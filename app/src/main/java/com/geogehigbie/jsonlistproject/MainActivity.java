@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
 //        String [] namesArray = (String[]) namesArrayList.toArray();
         CustomListAdapter listAdapter = new CustomListAdapter(this, peopleSimpleArrayList);
 
-        ListView listView = (ListView) findViewById(R.id.contacts_list);
+        final ListView listView = (ListView) findViewById(R.id.contacts_list);
         listView.setAdapter(listAdapter);
         listView.setVisibility(View.VISIBLE);
 
@@ -123,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                         showContactDetails(i);
+                        listView.setClickable(false);
                     }
                 });
 

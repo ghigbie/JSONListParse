@@ -39,6 +39,8 @@ public class ContactDetail extends Fragment {
         }
         setAllTextViews();
 
+        view.setClickable(true);
+
         return view;
     }
 

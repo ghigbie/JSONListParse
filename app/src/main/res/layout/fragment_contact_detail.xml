@@ -34,6 +34,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textStyle="bold"
                     android:text="@string/name"
                     />
                 <TextView
@@ -49,6 +50,7 @@
                     android:layout_marginTop="@dimen/list_item_padding_top"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textStyle="bold"
                     android:text="@string/company"
                     />
                 <TextView
@@ -75,6 +77,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textStyle="bold"
                     android:text="@string/phone"/>
 
                 <RelativeLayout
@@ -117,6 +120,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textStyle="bold"
                     android:text="@string/address"/>
 
                 <TextView
@@ -173,6 +177,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textStyle="bold"
                     android:text="@string/birthday"/>
 
                 <TextView
@@ -197,7 +202,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/email"/>
+                    android:text="@string/email"
+                    android:textStyle="bold"/>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
