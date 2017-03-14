@@ -30,8 +30,8 @@ public class ContactDetail extends Fragment {
             email = bundle.getString("email");
             birthday = bundle.getString("birthday");
             company = bundle.getString("company");
-            city = bundle.getString("city");
-            state = bundle.getString("state");
+            city = bundle.getString("city") + ", ";
+            state = bundle.getString("state") + " ";
             street = bundle.getString("street");
             zip = bundle.getString("zip");
         }
