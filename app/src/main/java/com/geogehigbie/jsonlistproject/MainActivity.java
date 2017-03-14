@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -37,8 +38,8 @@ public class MainActivity extends AppCompatActivity {
 
     private final String URL_BASE = "https://s3.amazonaws.com/technical-challenge/Contacts_v2.json";
     private ArrayList<Person> peopleArrayList = new ArrayList<>();
-    private ArrayList<String> namesArrayList;
-    private ArrayList<String> mobileArrayList;
+    private ArrayList<String> namesArrayList = new ArrayList<>();
+    private ArrayList<String> homePhoneArrayList = new ArrayList<>();
     private final String TAG = "DEBUGGING";
     private SoundPool soundPool;
     private int soundClick;
@@ -79,6 +80,8 @@ public class MainActivity extends AppCompatActivity {
 
                             Person personObject = new Person(name, homePhone);
                             peopleArrayList.add(personObject);
+                            namesArrayList.add(name);
+                            homePhoneArrayList.add(homePhone);
                         }
 
 
@@ -100,11 +103,11 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void createListView(){
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, namesArrayList);
+
         ListView listView = (ListView) findViewById(R.id.contacts_list);
+        listView.setAdapter(arrayAdapter);
         listView.setVisibility(View.VISIBLE);
-
-
-
     }
 
     public void defineSoundPool() {
@@ -132,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
                 soundPool.play(soundClick, 1, 1, 1, 0, 1);
                 button.setVisibility(GONE);
 
-                //createListView();
+                createListView();
                 //makeVolleyRequest();
             }
         });
