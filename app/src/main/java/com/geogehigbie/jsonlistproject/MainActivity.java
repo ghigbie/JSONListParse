@@ -54,8 +54,8 @@ public class MainActivity extends AppCompatActivity {
                         String name = person.getString("name");
                         Log.d(TAG, "onResponse: NAME " + name);
                         JSONObject phones = person.getJSONObject("phone");
-                        String mobile = phones.getString("mobile");
-                        Log.d(TAG, "onResponse: MOBILE " + mobile);
+                        String home = phones.getString("home");
+                        Log.d(TAG, "onResponse: HOME " + home);
 
                     } catch (JSONException e){
                         e.printStackTrace();
