@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private final String URL_BASE = "https://s3.amazonaws.com/technical-challenge/Contacts_v2.json";
-    private ArrayList<String> entries;
+    private ArrayList<Person> entries;
     private ArrayList<String> namesArrayList;
     private ArrayList<String> mobileArrayList;
     private final String TAG = "DEBUGGING";
