@@ -13,4 +13,7 @@
     <string name="bacon">Bacon Ipsom</string>
     <string name="bacon_mail">Bacon@bacon.com</string>
     <string name="a555">555-555-5555</string>
+    <string name="birthday">Birthday:</string>
+    <string name="home">Home</string>
+    <string name="work">Work</string>
 </resources>

@@ -161,6 +161,7 @@ public class MainActivity extends AppCompatActivity {
     public void showContactDetails(int position){
         Person personToSend = peopleComplexArrayList.get(position);
         String name = personToSend.getName();
+        String phone = personToSend.getHomePhone();
         String email = personToSend.getEmail();
         String birthday = personToSend.getBirthday();
         String company = personToSend.getCompany();
@@ -171,6 +172,7 @@ public class MainActivity extends AppCompatActivity {
 
         Bundle bundle = new Bundle();
         bundle.putString("name", name);
+        bundle.putString("phone", phone);
         bundle.putString("email", email);
         bundle.putString("birthday", birthday);
         bundle.putString("company", company);

@@ -12,6 +12,7 @@ public class ContactDetail extends Fragment {
 
     private View view;
     private String name;
+    private String phone;
     private String email;
     private String birthday;
     private String company;
@@ -27,6 +28,7 @@ public class ContactDetail extends Fragment {
         Bundle bundle = this.getArguments();
         if (bundle != null) {
             name = bundle.getString("name");
+            phone = bundle.getString("phone");
             email = bundle.getString("email");
             birthday = bundle.getString("birthday");
             company = bundle.getString("company");
@@ -35,20 +37,33 @@ public class ContactDetail extends Fragment {
             street = bundle.getString("street");
             zip = bundle.getString("zip");
         }
+        setAllTextViews();
 
         return view;
     }
 
-    public void setAllTextViews(){}
+    public void setAllTextViews() {
 
-    TextView nameText = (TextView) view.findViewById(R.id.name_text);
-    TextView emailText = (TextView) view.findViewById(R.id.email_text);
-    TextView birtdayText = (TextView) view.findViewById(R.id.birthday_text);
-    TextView companyText = (TextView) view.findViewById(R.id.company_text);
-    TextView cityText = (TextView) view.findViewById(R.id.city_text);
-    TextView stateText = (TextView) view.findViewById(R.id.state_text);
-    TextView streetText = (TextView) view.findViewById(R.id.street_text);
-    TextView zipText = (TextView) view.findViewById(R.id.zip_text);
+        TextView nameText = (TextView) view.findViewById(R.id.name_text);
+        TextView phoneText = (TextView) view.findViewById(R.id.phone_text);
+        TextView emailText = (TextView) view.findViewById(R.id.email_text);
+        TextView birthdayText = (TextView) view.findViewById(R.id.birthday_text);
+        TextView companyText = (TextView) view.findViewById(R.id.company_text);
+        TextView cityText = (TextView) view.findViewById(R.id.city_text);
+        TextView stateText = (TextView) view.findViewById(R.id.state_text);
+        TextView streetText = (TextView) view.findViewById(R.id.street_text);
+        TextView zipText = (TextView) view.findViewById(R.id.zip_text);
+
+        nameText.setText(name);
+        phoneText.setText(phone);
+        emailText.setText(email);
+        birthdayText.setText(birthday);
+        companyText.setText(company);
+        cityText.setText(city);
+        stateText.setText(state);
+        streetText.setText(street);
+        zipText.setText(zip);
+    }
 
 
 

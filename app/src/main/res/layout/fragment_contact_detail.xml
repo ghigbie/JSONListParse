@@ -16,7 +16,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_alignParentTop="true">
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="50dp">
 
             <ImageView
                 android:id="@+id/icon"
@@ -56,8 +57,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/company"
                     android:textStyle="bold"
-                    android:textAppearance="?android:textAppearanceLarge"
-                    />
+                    android:textAppearance="?android:textAppearanceLarge" />
             </LinearLayout>
 
             <!--Phone-->
@@ -69,7 +69,8 @@
                 android:layout_below="@id/linear1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginBottom="50dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -87,7 +88,8 @@
                         android:layout_height="wrap_content"
                         android:text="555-555-5555"
                         android:textStyle="bold"
-                        android:layout_alignParentLeft="true"/>
+                        android:layout_alignParentLeft="true"
+                        android:textAppearance="?android:textAppearanceLarge" />
 
 
                     <TextView
@@ -95,7 +97,9 @@
                         android:layout_height="wrap_content"
                         android:text="Home"
                         android:textStyle="bold"
-                        android:layout_alignParentEnd="true"/>
+                        android:layout_alignParentEnd="true"
+                        android:textAppearance="?android:textAppearanceLarge" />
+
                 </RelativeLayout>
 
 
@@ -104,22 +108,24 @@
         <!--Address-->
             <LinearLayout
                 android:id="@+id/linear3"
-                android:layout_above="@id/linear4"
+                android:layout_below="@id/linear2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginBottom="50dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Address:"/>
+                    android:text="@string/address"/>
 
                 <TextView
                     android:id="@+id/street_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Street"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    android:textAppearance="?android:textAppearanceLarge" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -132,21 +138,24 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Street"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold"
+                        android:textAppearance="?android:textAppearanceLarge" />
 
                     <TextView
                         android:id="@+id/state_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="State"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold"
+                        android:textAppearance="?android:textAppearanceLarge" />
 
                     <TextView
                         android:id="@+id/zip_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Street"
-                        android:textStyle="bold"/>
+                        android:text="85412"
+                        android:textStyle="bold"
+                        android:textAppearance="?android:textAppearanceLarge" />
                 </LinearLayout>
 
 
@@ -159,19 +168,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_above="@id/linear5">
+                android:layout_below="@id/linear3">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Birthday"/>
+                    android:text="@string/birthday"/>
 
                 <TextView
                     android:id="@+id/birthday_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Birthday For Real"
-                    android:textStyle="bold"/>
+                    android:text="@string/birthday"
+                    android:textStyle="bold"
+                    android:textAppearance="?android:textAppearanceLarge" />
 
             </LinearLayout>
 
@@ -187,7 +197,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Email:"/>
+                    android:text="@string/email"/>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -198,17 +208,18 @@
                         android:id="@+id/email_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="happy@gilmore.com"
+                        android:text="@string/bacon_mail"
                         android:textStyle="bold"
-                        android:layout_alignParentLeft="true"/>
+                        android:textAppearance="?android:textAppearanceLarge" />
 
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Work"
+                        android:text="@string/work"
                         android:textStyle="bold"
-                        android:layout_alignParentEnd="true"/>
+                        android:layout_alignParentEnd="true"
+                        android:textAppearance="?android:textAppearanceLarge" />
                 </RelativeLayout>
 
 
