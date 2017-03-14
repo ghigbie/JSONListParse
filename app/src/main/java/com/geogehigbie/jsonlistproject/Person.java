@@ -25,6 +25,11 @@ public class Person {
         this.name = name;
     }
 
+    public Person(String name, String homePhone) {
+        this.name = name;
+        this.homePhone = homePhone;
+    }
+
     public String getAddress() {
         return address;
     }
