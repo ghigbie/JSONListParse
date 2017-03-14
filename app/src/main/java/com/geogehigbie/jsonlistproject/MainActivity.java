@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -28,6 +29,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static android.view.View.GONE;
 
@@ -98,6 +100,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void createListView(){
+        ListView listView = (ListView) findViewById(R.id.contacts_list);
+        listView.setVisibility(View.VISIBLE);
+
+
 
     }
 
@@ -131,6 +137,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
 
 }
