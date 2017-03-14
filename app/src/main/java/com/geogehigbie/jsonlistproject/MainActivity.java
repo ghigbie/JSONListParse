@@ -1,10 +1,17 @@
 package com.geogehigbie.jsonlistproject;
 
 import android.app.ActionBar;
+import android.media.AudioAttributes;
+import android.media.SoundPool;
 import android.net.Uri;
+import android.os.Build;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -22,30 +29,28 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import static android.view.View.GONE;
+
 public class MainActivity extends AppCompatActivity {
 
     private final String URL_BASE = "https://s3.amazonaws.com/technical-challenge/Contacts_v2.json";
-    private ArrayList<Person> peopleArrayList;
+    private ArrayList<Person> peopleArrayList = new ArrayList<>();
     private ArrayList<String> namesArrayList;
     private ArrayList<String> mobileArrayList;
     private final String TAG = "DEBUGGING";
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    private GoogleApiClient client;
-
+    private SoundPool soundPool;
+    private int soundClick;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         centerActionBar();
+        defineSoundPool();
+        setButtonListener();
         makeVolleyRequest();
 
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+
     }
 
     public void centerActionBar() {
@@ -61,22 +66,25 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONArray response) {
                 Log.v("TAG ", response.toString());
-                for (int i = 0; i < response.length(); i++) {
                     try {
-                        JSONObject person = response.getJSONObject(i);
-                        String name = person.getString("name");
-                        Log.d(TAG, "onResponse: NAME " + name);
-                        JSONObject phones = person.getJSONObject("phone");
-                        String home = phones.getString("home");
-                        Log.d(TAG, "onResponse: HOME " + home);
+                        for (int i = 0; i < response.length(); i++) {
+                            JSONObject person = response.getJSONObject(i);
+                            String name = person.getString("name");
+                            Log.d(TAG, "onResponse: NAME " + name);
+                            JSONObject phones = person.getJSONObject("phone");
+                            String homePhone = phones.getString("home");
+                            Log.d(TAG, "onResponse: HOME " + homePhone);
 
+                            Person personObject = new Person(name, homePhone);
+                            peopleArrayList.add(personObject);
+                        }
 
 
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
 
-                }
+
             }
         }, new Response.ErrorListener() {
             @Override
@@ -88,39 +96,41 @@ public class MainActivity extends AppCompatActivity {
         Volley.newRequestQueue(this).add(jsonArrayRequest);
     }
 
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    public Action getIndexApiAction() {
-        Thing object = new Thing.Builder()
-                .setName("Main Page") // TODO: Define a title for the content shown.
-                // TODO: Make sure this auto-generated URL is correct.
-                .setUrl(Uri.parse("http://[ENTER-YOUR-URL-HERE]"))
-                .build();
-        return new Action.Builder(Action.TYPE_VIEW)
-                .setObject(object)
-                .setActionStatus(Action.STATUS_TYPE_COMPLETED)
-                .build();
+
+    public void createListView(){
+
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
+    public void defineSoundPool() {
 
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client.connect();
-        AppIndex.AppIndexApi.start(client, getIndexApiAction());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            AudioAttributes audioAttributes = new AudioAttributes.Builder()
+                    .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+                    .setUsage(AudioAttributes.USAGE_GAME)
+                    .build();
+
+            soundPool = new SoundPool.Builder()
+                    .setMaxStreams(2)
+                    .setAudioAttributes(audioAttributes)
+                    .build();
+        }
+        soundClick = soundPool.load(this, R.raw.click_on_sound, 1);
+
     }
 
-    @Override
-    public void onStop() {
-        super.onStop();
+    public void setButtonListener(){
+        final Button button = (Button) findViewById(R.id.button_open);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                soundPool.play(soundClick, 1, 1, 1, 0, 1);
+                button.setVisibility(GONE);
 
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        AppIndex.AppIndexApi.end(client, getIndexApiAction());
-        client.disconnect();
+                //createListView();
+                //makeVolleyRequest();
+            }
+        });
     }
+
+
 }
