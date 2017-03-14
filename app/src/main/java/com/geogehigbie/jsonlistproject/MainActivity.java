@@ -35,8 +35,6 @@ public class MainActivity extends AppCompatActivity {
     private final String URL_BASE = "https://s3.amazonaws.com/technical-challenge/Contacts_v2.json";
     private ArrayList<Person> peopleSimpleArrayList = new ArrayList<>();
     private ArrayList<Person> peopleComplexArrayList = new ArrayList<>();
-//    private ArrayList<String> namesArrayList = new ArrayList<>();
-//    private ArrayList<String> homePhoneArrayList = new ArrayList<>();
     private final String TAG = "DEBUGGING";
     private SoundPool soundPool;
     private int soundClick;
@@ -110,8 +108,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void createListView(){
-        //ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, namesArrayList);
-//        String [] namesArray = (String[]) namesArrayList.toArray();
+
         CustomListAdapter listAdapter = new CustomListAdapter(this, peopleSimpleArrayList);
 
         final ListView listView = (ListView) findViewById(R.id.contacts_list);
